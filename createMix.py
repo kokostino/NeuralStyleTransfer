@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-import os
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import imshow
 from PIL import Image
 import numpy as np
 import tensorflow as tf
 import pprint
+
 
 content_img=str(input("Enter content image name : "))
 style_img=str(input("Enter style image name: "))
@@ -128,6 +128,7 @@ def train_step(generated_image, alpha = 10, beta = 40):
 
 generated_image = tf.Variable(generated_image)
 
+
 epochs = 2501
 for i in range(epochs):
     train_step(generated_image)
@@ -137,8 +138,8 @@ for i in range(epochs):
         image = tensor_to_image(generated_image)
         imshow(image)
         plt.axis("off")
-        #image.save(f"images/image_{i}.jpg")
-        plt.savefig(content_img.split(".")[0]+"_"+str(i)+"_"+style_img.rsplit("/")[1],dpi=400,bbox_inches=None)
+        image.save(content_img.split(".")[0]+"__"+str(i)+"__"+style_img.rsplit("/")[1])
+        #plt.savefig(content_img.split(".")[0]+"_"+str(i)+"_"+style_img.rsplit("/")[1],dpi=400,bbox_inches=None)
         plt.show() 
         
 # Show the 3 images in a row
