@@ -138,7 +138,7 @@ for i in range(epochs):
         imshow(image)
         plt.axis("off")
         #image.save(f"images/image_{i}.jpg")
-        plt.savefig(content_img.split(".")[0]+"PLUS"+style_img.rsplit("/")[1],dpi=400,bbox_inches=None)
+        plt.savefig(content_img.split(".")[0]+"_"+str(i)+"_"+style_img.rsplit("/")[1],dpi=400,bbox_inches=None)
         plt.show() 
         
 # Show the 3 images in a row
